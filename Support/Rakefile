@@ -1,4 +1,4 @@
-$:.unshift(File.dirname(__FILE__) + '/../../rspec/lib')
+$:.unshift(File.dirname(__FILE__) + '/../../example_rails_app/vendor/plugins/rspec/lib')
 require 'rubygems'
 require 'spec/rake/spectask'
 

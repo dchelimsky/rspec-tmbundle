@@ -18,7 +18,7 @@ share_as :RunnerSpecHelper do
     $".delete_if do |path|
       path =~ /example_failing_spec\.rb/
     end
-    rspec_options.example_groups.delete_if do |example_group|
+    Spec::Runner.options.example_groups.delete_if do |example_group|
       example_group.description == "An example failing spec"
     end
   end
