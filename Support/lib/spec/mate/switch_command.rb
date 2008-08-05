@@ -26,6 +26,7 @@ module Spec
               if rails?(prefix)
                 path = path.gsub(/\/app\//, "/spec/")
                 path = path.gsub(/\/lib\//, "/spec/lib/")
+                path = path.gsub(/application/, 'application_controller')
               else
                 path = path.gsub(/\/lib\//, "/spec/")
               end
@@ -39,6 +40,9 @@ module Spec
               if rails?(prefix)
                 path = path.gsub(/\/spec\/lib\//, "/lib/")
                 path = path.gsub(/\/spec\//, "/app/")
+                if File.basename(path) == 'application_controller.rb'
+                  path = path.gsub(/_controller/, "")
+                end
               else
                 path = path.gsub(/\/spec\//, "/lib/")
               end

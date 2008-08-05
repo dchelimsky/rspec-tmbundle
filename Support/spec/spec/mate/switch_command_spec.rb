@@ -116,6 +116,16 @@ EOF
         "/a/full/path/app/controllers/mooky_controller.rb".should twin(
         "/a/full/path/spec/controllers/mooky_controller_spec.rb")
       end
+      
+      it do
+        "/a/full/path/app/controllers/application.rb".should twin(
+        "/a/full/path/spec/controllers/application_controller_spec.rb")
+      end
+      
+      it do
+        "/a/full/path/spec/controllers/application_controller_spec.rb".should twin(
+        "/a/full/path/app/controllers/application.rb")
+      end
 
       it do
         "/a/full/path/app/models/mooky.rb".should twin(
