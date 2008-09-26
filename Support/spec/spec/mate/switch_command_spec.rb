@@ -67,7 +67,7 @@ module Spec
         Twin.new(expected, false)
       end
 
-      it do
+      specify do
         "/Users/aslakhellesoy/scm/rspec/trunk/RSpec.tmbundle/Support/spec/spec/mate/switch_command_spec.rb".should twin(
         "/Users/aslakhellesoy/scm/rspec/trunk/RSpec.tmbundle/Support/lib/spec/mate/switch_command.rb")
       end
@@ -112,57 +112,57 @@ EOF
         Twin.new(expected, true)
       end
 
-      it do
+      specify do
         "/a/full/path/app/controllers/mooky_controller.rb".should twin(
         "/a/full/path/spec/controllers/mooky_controller_spec.rb")
       end
       
-      it do
+      specify do
         "/a/full/path/app/controllers/application.rb".should twin(
         "/a/full/path/spec/controllers/application_controller_spec.rb")
       end
       
-      it do
+      specify do
         "/a/full/path/spec/controllers/application_controller_spec.rb".should twin(
         "/a/full/path/app/controllers/application.rb")
       end
       
-      it do
+      specify do
         "/a/full/path/app/controllers/job_applications_controller.rb".should twin(
         "/a/full/path/spec/controllers/job_applications_controller_spec.rb")
       end
       
-      it do
+      specify do
         "/a/full/path/spec/controllers/job_applications_controller_spec.rb".should twin(
         "/a/full/path/app/controllers/job_applications_controller.rb")
       end
       
-      it do
+      specify do
         "/a/full/path/app/helpers/application_helper.rb".should twin(
         "/a/full/path/spec/helpers/application_helper_spec.rb")
       end
       
-      it do
+      specify do
         "/a/full/path/spec/helpers/application_helper_spec.rb".should twin(
         "/a/full/path/app/helpers/application_helper.rb")
       end
 
-      it do
+      specify do
         "/a/full/path/app/models/mooky.rb".should twin(
         "/a/full/path/spec/models/mooky_spec.rb")
       end
 
-      it do
+      specify do
         "/a/full/path/app/helpers/mooky_helper.rb".should twin(
         "/a/full/path/spec/helpers/mooky_helper_spec.rb")
       end
 
-      it do
+      specify do
         "/a/full/path/app/views/mooky/show.html.erb".should twin(
         "/a/full/path/spec/views/mooky/show.html.erb_spec.rb")
       end
       
-      it do
+      specify do
         "/a/full/path/app/views/mooky/show.rhtml".should twin(
         "/a/full/path/spec/views/mooky/show.rhtml_spec.rb")
       end
