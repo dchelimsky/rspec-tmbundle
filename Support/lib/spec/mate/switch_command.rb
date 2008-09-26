@@ -20,13 +20,13 @@ module Spec
       def twin(path)
         if path =~ /^(.*?)\/(lib|app|spec)\/(.*?)$/
           prefix, parent, rest = $1, $2, $3
-          
+
           case parent
             when 'lib', 'app' then
               if rails?(prefix)
                 path = path.gsub(/\/app\//, "/spec/")
                 path = path.gsub(/\/lib\//, "/spec/lib/")
-                path = path.gsub(/application/, 'application_controller')
+                path = path.gsub(/application\.rb/, 'application_controller.rb')
               else
                 path = path.gsub(/\/lib\//, "/spec/")
               end
@@ -40,9 +40,7 @@ module Spec
               if rails?(prefix)
                 path = path.gsub(/\/spec\/lib\//, "/lib/")
                 path = path.gsub(/\/spec\//, "/app/")
-                if File.basename(path) == 'application_controller.rb'
-                  path = path.gsub(/_controller/, "")
-                end
+                path = path.gsub(/application_controller\.rb/, 'application.rb')
               else
                 path = path.gsub(/\/spec\//, "/lib/")
               end
