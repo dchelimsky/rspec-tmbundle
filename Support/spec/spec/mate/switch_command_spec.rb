@@ -82,11 +82,6 @@ EOF
           "/a/full/path/app/controllers/mooky_controller.rb",
           "/a/full/path/spec/controllers/mooky_controller_spec.rb"
         ]
-                   
-        expect_twins [
-          "/a/full/path/app/controllers/mooky_controller.rb",
-          "/a/full/path/spec/controllers/mooky_controller_spec.rb"
-        ]
       
         expect_twins [
           "/a/full/path/app/controllers/application.rb",
