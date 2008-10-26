@@ -3,16 +3,16 @@ require File.dirname(__FILE__) + '/../../../lib/spec/mate/switch_command'
 module Spec
   module Mate
     class Twin
-      def initialize(expected, rails)
+      def initialize(expected, webapp)
         @expected = expected
-        @rails = rails
+        @webapp = webapp
       end
 
       def matches?(actual)
         @actual = actual
         # Satisfy expectation here. Return false or raise an error if it's not met.
         command = SwitchCommand.new
-        command.stub!(:rails?).and_return(@rails)
+        command.stub!(:webapp?).and_return(@webapp)
 
         path = command.twin(@actual)
         path.should == @expected
@@ -43,7 +43,7 @@ module Spec
       def matches?(actual)
         @actual = actual
         c = SwitchCommand.new
-        c.stub!(:rails?).and_return(@rails)
+        c.stub!(:webapp?).and_return(@webapp)
         c.file_type(@actual).should == @expected
         true
       end
@@ -167,7 +167,7 @@ EOF
         "/a/full/path/spec/views/mooky/show.rhtml_spec.rb")
       end
       
-      it "should work with lib dir in rails" do
+      it "should work with lib dir in rails or merb" do
         "/a/full/path/lib/foo/mooky.rb".should twin(
         "/a/full/path/spec/lib/foo/mooky_spec.rb")
       end
