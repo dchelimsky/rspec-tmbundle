@@ -12,8 +12,7 @@ module Spec
           matcher.description = "treat #{expected.inspect} and #{actual.inspect} as twins"
 
           command = SwitchCommand.new
-          command.twin(actual) == expected &&
-          command.twin(expected) == actual
+          command.twin(actual) == expected && command.twin(expected) == actual
         end
       end
 
