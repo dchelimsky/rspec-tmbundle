@@ -17,13 +17,24 @@ module Spec
         end
       end
       
+      module Framework
+        def rails?
+          File.exist?(File.join(self, 'config', 'boot.rb'))
+        end
+
+        def merb?
+          File.exist?(File.join(self, 'config', 'init.rb'))
+        end
+      end
+      
       def twin(path)
         if path =~ /^(.*?)\/(lib|app|spec)\/(.*?)$/
-          prefix, parent, rest = $1, $2, $3
+          framework, parent, rest = $1, $2, $3
+          framework.extend Framework
 
           case parent
             when 'lib', 'app' then
-              if webapp?(prefix)
+              if framework.rails? || framework.merb?
                 path = path.gsub(/\/app\//, "/spec/")
                 path = path.gsub(/\/lib\//, "/spec/lib/")
                 path = path.gsub(/application\.rb/, 'application_controller.rb')
@@ -37,7 +48,7 @@ module Spec
               path = path.gsub(/\.rhtml_spec\.rb$/, ".rhtml")
               path = path.gsub(/\.erb_spec\.rb$/, ".erb")
               path = path.gsub(/_spec\.rb$/, ".rb")
-              if webapp?(prefix)
+              if framework.rails? || framework.merb?
                 path = path.gsub(/\/spec\/lib\//, "/lib/")
                 path = path.gsub(/\/spec\//, "/app/")
                 path = path.gsub(/application_controller\.rb/, 'application.rb')
@@ -60,18 +71,6 @@ module Spec
           return "spec"
         end
         "file"
-      end
-      
-      def webapp?(prefix)
-        rails?(prefix) || merb?(prefix)
-      end
-      
-      def rails?(prefix)
-        File.exist?(File.join(prefix, 'config', 'boot.rb'))
-      end
-      
-      def merb?(prefix)
-        File.exist?(File.join(prefix, 'config', 'init.rb'))
       end
       
       def create?(relative_twin, file_type)
