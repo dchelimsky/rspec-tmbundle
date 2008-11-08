@@ -57,6 +57,19 @@ describe "Spec::Mate::Runner#run_files" do
   end
 end
 
+describe "Spec::Mate::Runner#run_last_remembered_file" do
+  include RunnerSpecHelper
+
+  it "should run all selected files" do
+    @spec_mate.save_as_last_remembered_file "#{@fixtures_path}/example_failing_spec.rb"
+    @spec_mate.run_last_remembered_file(@test_runner_io)
+    @test_runner_io.rewind
+    html = @test_runner_io.read
+
+    html.should =~ @first_failing_spec
+  end
+end
+
 describe "Spec::Mate::Runner#run_focused" do
   include RunnerSpecHelper
 
