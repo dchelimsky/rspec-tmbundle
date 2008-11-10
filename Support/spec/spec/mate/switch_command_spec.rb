@@ -131,6 +131,16 @@ EOF
           "/a/full/path/app/views/mooky/show.rhtml",
           "/a/full/path/spec/views/mooky/show.rhtml_spec.rb"
         ]
+        
+        expect_twins [
+          "/a/full/path/app/views/mooky/show.js.rjs",
+          "/a/full/path/spec/views/mooky/show.js.rjs_spec.rb"
+        ]
+      
+        expect_twins [
+          "/a/full/path/app/views/mooky/show.rjs",
+          "/a/full/path/spec/views/mooky/show.rjs_spec.rb"
+        ]
       
         expect_twins [
           "/a/full/path/lib/foo/mooky.rb",
@@ -152,6 +162,10 @@ EOF
         it "should suggest view spec" do
           "/a/full/path/spec/views/mooky/show.html.erb_spec.rb".should be_a("view spec")
         end
+        
+        it "should suggest an rjs view spec" do
+          "/a/full/path/spec/views/mooky/show.js.rjs_spec.rb".should be_a("view spec")
+        end
 
         it "should suggest controller" do
           "/a/full/path/app/controllers/mooky_controller.rb".should be_a("controller")
@@ -167,6 +181,10 @@ EOF
 
         it "should suggest view" do
           "/a/full/path/app/views/mooky/show.html.erb".should be_a("view")
+        end
+        
+        it "should suggest an rjs view" do
+          "/a/full/path/app/views/mooky/show.js.rjs".should be_a("view")
         end
 
         it "should create spec that requires a helper" do
