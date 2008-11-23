@@ -51,9 +51,7 @@ module Spec
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe ${1:Type} do
-  it "should ${2:description}" do
-    $0
-  end
+  $0
 end
 SPEC
           SwitchCommand.new.content_for('spec', "spec/foo/zap_spec.rb").should == regular_spec
