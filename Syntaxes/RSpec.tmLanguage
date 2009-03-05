@@ -112,7 +112,7 @@
 		<key>example</key>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(it)\b</string>
+			<string>^\s*(it|specify)\b</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -157,7 +157,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(it)\s+(.*[^do])\s*$</string>
+			<string>^\s*(it|specify)\s+(.*[^do])\s*$</string>
 			<key>name</key>
 			<string>meta.rspec.pending</string>
 		</dict>
@@ -172,7 +172,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(it)\s*{</string>
+			<string>^\s*(it|specify)\s*{</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
