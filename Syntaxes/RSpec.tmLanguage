@@ -60,6 +60,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#single-line-example</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#pending</string>
 		</dict>
 		<dict>
@@ -156,6 +160,19 @@
 			<string>^\s*(it)\s+(.*[^do])\s*$</string>
 			<key>name</key>
 			<string>meta.rspec.pending</string>
+		</dict>
+		<key>single-line-example</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.rspec.example</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*(it)\s*{</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
