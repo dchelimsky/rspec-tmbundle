@@ -2,8 +2,8 @@ module Spec
   module Mate
     class Runner
       def run_files(stdout, options={})
-        files = ENV['TM_SELECTED_FILES'].split(" ").map do |path|
-          File.expand_path(path[1..-2])
+        files = ENV['TM_SELECTED_FILES'].scan(/'(.*?)'/).flatten.map do |path|
+          File.expand_path(path)
         end
         options.merge!({:files => files})
         run(stdout, options)
