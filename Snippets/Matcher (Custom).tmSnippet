@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>content</key>
@@ -15,11 +15,11 @@
     true
   end
 
-  def failure_message
+  def failure_message_for_should
     "expected #{@actual.inspect} to $2 #{@$3.inspect}, but it didn't"
   end
 
-  def negative_failure_message
+  def failure_message_for_should_not
     "expected #{@actual.inspect} not to $2 #{@$3.inspect}, but it did"
   end
 end
@@ -28,11 +28,11 @@ def ${2:reverse_to}(${3:expected})
   $1.new($3)
 end</string>
 	<key>name</key>
-	<string>Custom Matcher</string>
+	<string>Matcher (Custom)</string>
 	<key>scope</key>
 	<string>source.ruby.rspec</string>
 	<key>tabTrigger</key>
-	<string>mat</string>
+	<string>matc</string>
 	<key>uuid</key>
 	<string>55BF6C99-B4C4-4772-B7DC-0A18407E429C</string>
 </dict>
