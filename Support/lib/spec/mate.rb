@@ -11,7 +11,7 @@ elsif ENV['TM_RSPEC_HOME']
   end
   $LOAD_PATH.unshift(rspec_lib)
 end
-require 'spec'
+require 'spec/autorun'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/..')
 require 'spec/mate/runner'
