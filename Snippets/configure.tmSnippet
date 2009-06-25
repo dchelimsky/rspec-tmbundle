@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>Spec::Runner.configure do |config|
+  config.$0
+end</string>
+	<key>name</key>
+	<string>configure</string>
+	<key>scope</key>
+	<string>source.ruby.rspec</string>
+	<key>tabTrigger</key>
+	<string>cnf</string>
+	<key>uuid</key>
+	<string>B8AD7AB4-2F0B-4B00-9DFA-5C84994FCD0C</string>
+</dict>
+</plist>
