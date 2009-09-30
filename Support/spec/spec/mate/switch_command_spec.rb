@@ -196,6 +196,31 @@ EOF
           SwitchCommand.new.content_for('controller spec', "spec/controllers/mooky_controller_spec.rb").split("\n")[0].should == 
             "require 'spec_helper'"
         end
+        
+        it "creates a controller if twinned from a controller spec" do
+          SwitchCommand.new.content_for('controller', "spec/controllers/mooky_controller.rb").should == <<-EXPECTED
+class MookyController < ApplicationController
+end
+EXPECTED
+        end
+        
+        it "creates a model if twinned from a model spec" do
+          SwitchCommand.new.content_for('model', "spec/models/mooky.rb").should == <<-EXPECTED
+class Mooky < ActiveRecord::Base
+end
+EXPECTED
+        end
+        
+        it "creates a helper if twinned from a helper spec" do
+          SwitchCommand.new.content_for('helper', "spec/helpers/mooky_helper.rb").should == <<-EXPECTED
+module MookyHelper
+end
+EXPECTED
+        end
+        
+        it "creates an empty view if twinned from a view spec" do
+          SwitchCommand.new.content_for('view', "spec/views/mookies/index.html.erb_spec.rb").should == ""
+        end
       end
     end
   end

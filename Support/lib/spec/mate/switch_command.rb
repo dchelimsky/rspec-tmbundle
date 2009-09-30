@@ -86,8 +86,34 @@ module Spec
         case file_type
           when /spec$/ then
             spec(relative_path)
+          when "controller"
+            <<-CONTROLLER
+class #{class_from_path(relative_path)} < ApplicationController
+end
+CONTROLLER
+          when "model"
+            <<-MODEL
+class #{class_from_path(relative_path)} < ActiveRecord::Base
+end
+MODEL
+          when "helper"
+            <<-HELPER
+module #{class_from_path(relative_path)}
+end
+HELPER
+          when "view"
+            ""
           else
             klass(relative_path)
+        end
+      end
+      
+      def class_from_path(path)
+        underscored = path.split('/').last.split('.rb').first
+        parts = underscored.split('_')
+        parts.inject("") do |word, part|
+          word << part.capitalize
+          word
         end
       end
       
@@ -106,9 +132,9 @@ require 'spec_helper'
 SPEC
       end
 
-      def klass(relative_path)
+      def klass(relative_path, content=nil)
         parts = relative_path.split('/')
-        lib_index = parts.index('lib')
+        lib_index = parts.index('lib') || 0
         parts = parts[lib_index+1..-1]
         lines = Array.new(parts.length*2)
         parts.each_with_index do |part, n|
