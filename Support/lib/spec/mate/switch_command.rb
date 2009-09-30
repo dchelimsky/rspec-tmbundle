@@ -99,13 +99,10 @@ module Spec
       end
       
       def spec(path)
-        depth = "/.." * (path.split('/').length - 2)
-        header = "require File.dirname(__FILE__) + '#{depth}/spec_helper'"
-        snippet_name = "Describe_type.tmSnippet"
         content = <<-SPEC
-#{header}
+require 'spec_helper'
 
-#{snippet(snippet_name)}
+#{snippet("Describe_type.tmSnippet")}
 SPEC
       end
 
@@ -132,8 +129,8 @@ SPEC
       def write_and_open(path, content)
         `mkdir -p "#{File.dirname(path)}"`
         `touch "#{path}"`
-        `osascript &>/dev/null -e 'tell app "SystemUIServer" to activate' -e 'tell app "TextMate" to activate'`
         `"$TM_SUPPORT_PATH/bin/mate" "#{path}"`
+        `osascript &>/dev/null -e 'tell app "SystemUIServer" to activate' -e 'tell app "TextMate" to activate'`
         escaped_content = content.gsub("\n","\\n").gsub('$','\\$').gsub('"','\\\\\\\\\\\\"')
         `osascript &>/dev/null -e "tell app \\"TextMate\\" to insert \\"#{escaped_content}\\" as snippet true"`      
       end
