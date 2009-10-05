@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>require 'spec_helper'</string>
+	<string>${1:double}.stub(:${2:message})$3</string>
 	<key>name</key>
-	<string>Require spec_helper</string>
+	<string>stub</string>
 	<key>scope</key>
 	<string>source.ruby.rspec</string>
 	<key>tabTrigger</key>
-	<string>resh</string>
+	<string>stu</string>
 	<key>uuid</key>
-	<string>DAD2B74D-2105-42B0-9FC5-466F3B3D0DB7</string>
+	<string>C4DD43A2-7E6A-4875-AF86-7EF7963BF83D</string>
 </dict>
 </plist>
