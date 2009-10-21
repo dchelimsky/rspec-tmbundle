@@ -3,13 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>require 'spec_helper'</string>
+	<string>require 'spec_helper'
+
+</string>
 	<key>name</key>
 	<string>Require spec_helper</string>
 	<key>scope</key>
 	<string>source.ruby.rspec</string>
 	<key>tabTrigger</key>
-	<string>resh</string>
+	<string>reqs</string>
 	<key>uuid</key>
 	<string>DAD2B74D-2105-42B0-9FC5-466F3B3D0DB7</string>
 </dict>
