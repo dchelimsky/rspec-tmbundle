@@ -1,7 +1,9 @@
 # This is based on Florian Weber's TDDMate
 require 'rubygems'
 
+ENV['TM_PROJECT_DIRECTORY'] ||= File.dirname(ENV['TM_FILEPATH'])
 rspec_rails_plugin = File.join(ENV['TM_PROJECT_DIRECTORY'],'vendor','plugins','rspec','lib')
+
 if File.directory?(rspec_rails_plugin)
   $LOAD_PATH.unshift(rspec_rails_plugin)
 elsif ENV['TM_RSPEC_HOME']

@@ -59,7 +59,7 @@ module Spec
       end
       
       def project_directory
-        File.expand_path(ENV['TM_PROJECT_DIRECTORY'])
+        File.expand_path(ENV['TM_PROJECT_DIRECTORY']) rescue File.dirname(single_file)
       end
     end
   end
